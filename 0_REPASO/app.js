@@ -218,7 +218,7 @@ function obtenerNombreCompleto () {
     return nombreCompleto;
 }
 
-console.log(obtenerNombreCompleto());
+// console.log(obtenerNombreCompleto());
 
 function sumar(){
     let a = 200;
@@ -228,9 +228,9 @@ function sumar(){
 }
 
 let resultadoDeLaSuma = sumar();
-console.log(resultadoDeLaSuma);
+// console.log(resultadoDeLaSuma);
 
-console.log(sumar());
+// console.log(sumar());
 
 
 function restar() {
@@ -238,9 +238,65 @@ function restar() {
     let num1 = 100;
     let num2 = 50;
     let resultado = num1 - num2;
+    // console.log(resultado);
+    return resultado;
+}
+
+// let resultadoDeLaResta = restar();
+
+// console.log(resultadoDeLaResta);
+
+//CREACIÓN DE FUNCIÓN
+//COSA 1 Y COSA2 SON PARÁMETROS
+function multiplicar(cosa1, cosa2) {
+    let resultado =  cosa1 * cosa2;
     console.log(resultado);
 }
 
-let resultadoDeLaResta = restar();
+multiplicar(10, 20);
+multiplicar(5, 3);
+multiplicar(12, 10);
 
-console.log(resultadoDeLaResta);
+//CREACIÓN  DE FUNCIÓN SALUDAR
+//NOMBRE ES UN PARÁMETRO
+function saludarUsuario(nombre){
+    console.log('Bienvenido ' + nombre);
+}
+
+
+//LLAMADAS A LA FUNCIÓN
+saludarUsuario('Julia');
+saludarUsuario('Luis');
+//NOMBRETEST ES UNA VARIABLE QUE USAMOS COMO ARGUMENTO
+let nombreTest = 'Hector';
+saludarUsuario(nombreTest);
+
+
+//Ejemplo con el prompt
+// let nombreRecibido = prompt('Escribe tu nombre');
+// saludarUsuario(nombreRecibido);
+
+
+//Creación de la función
+function crearContrasena(nombre, edad, mesNacimiento) {
+    let contrasena = nombre + edad + mesNacimiento;
+    if(contrasena) {
+        console.log('su contraseña es: '+ contrasena);
+    } else {
+        console.log('no tenemos la información completa');
+    }
+}
+
+//Mandamos llamar a la función
+crearContrasena('diego', 20, 'diciembre');
+
+crearContrasena('julia', 40, 'enero');
+
+let nombreUser = 'Ana';
+let edadUser = 30;
+let mesUser = 'julio';
+
+crearContrasena(nombreUser, 12, 'marzo');
+
+crearContrasena();
+
