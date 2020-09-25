@@ -1,5 +1,5 @@
 
-//OBEJTOS LITERALEs
+//OBEJTOS LITERALES
 
 
 //EJEMPLO 1
@@ -119,3 +119,33 @@ coche.tapiceria = 'sintética';
 coche.anio = 2030;
 //Mostramos el objeto final
 console.log(coche);
+
+let coche2 = {
+    //Atributos
+    motor: 'eléctrico',
+    puertas: 6,
+    color: 'rojo',
+    anio: 2021,
+    marca: 'mazda',
+
+    //Métodos
+    arrancar(){
+        console.log('run runnnn');
+    },
+
+    girarDerecha() {
+        console.log('---->')
+    },
+    girarIzquierda() {
+        console.log('<----')
+    },
+    cambiarMotor(nuevoTipoDeMotor){
+        this.motor = nuevoTipoDeMotor;
+    },
+    pintarCoche(nuevoColor){
+        this.color = nuevoColor;
+    },
+    cambiarNumPuertas(nuevoNumero){
+        this.puertas = nuevoNumero;
+    }
+}
