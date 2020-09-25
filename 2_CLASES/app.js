@@ -80,10 +80,18 @@ class Bebida {
         this.nombre = nombre;
         this.ingredientes = ingredientes;
         this.precio = 100;
+        this.medida = 500;
     };
     beber(){
         console.log('glup glup');
+    };
+    setMedida(nuevaMedida){
+        this.medida = nuevaMedida;
+    };
+    getMedida(){
+       return this.medida;
     }
+
 }
 
 let margarita = new Bebida('Margarita', ['tequila', 'limón', 'sal']);
@@ -95,3 +103,6 @@ console.log(carajillo);
 
 carajillo.precio = 200;
 console.log(carajillo);
+carajillo.setMedida(250);
+console.log(carajillo);
+console.log(carajillo.getMedida());
