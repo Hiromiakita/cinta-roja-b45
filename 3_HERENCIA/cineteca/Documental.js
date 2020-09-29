@@ -2,10 +2,14 @@
 const Largometraje = require('./Largometraje');
 
 class Documental extends Largometraje {
-    constructor(titulo, duracion) {
-        super(titulo, duracion);
+    constructor(titulo, duracion, director, actores, procedencia, temática) {
+        super(titulo, duracion, director, actores, procedencia);
+        this.temática = temática;
     }
 }
+
+
+module.exports = Documental;
 
 
 //EJEMPLO
