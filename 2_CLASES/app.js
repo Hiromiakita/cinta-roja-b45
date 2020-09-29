@@ -106,3 +106,24 @@ console.log(carajillo);
 carajillo.setMedida(250);
 console.log(carajillo);
 console.log(carajillo.getMedida());
+
+
+class Hola {
+    constructor() {
+        this.nombre = 'Ana';
+    }
+
+    saludar () {
+
+    }
+
+    cambiar = (nvoNombre) => {
+        this.nombre = nvoNombre;
+    }
+}
+
+
+let hola = new Hola();
+console.log(hola);
+hola.cambiar('jeje');
+console.log(hola);
