@@ -53,6 +53,13 @@ function determinarQuienGanaMas(informacionEmpleados) {
     return `El que gana más es ${ganador}: ${sueldoMayor}`;
 }
 
+//6.- Guardar en un array los 20 primeros números pares
+
+//10.- Escribe una función que halle el máximo entre dos números 
+
+//11.- Escribe una función que halle el máximo entre tres números
+
+//12.- Escribe una función que devuelva si un número es negativo, positivo o cero
 
 //Mandar llamar una función
 //a través de su nombre y con paréntesis
@@ -107,6 +114,9 @@ let informacion = [
 //reemplazamos la palabra function por una flecha
 // () => {}
 
+//la llaves y el ruturn se pueden omitir cuando la función sólo retorna algo
+//Se pueden omitir los parénteis de los argumentos cuando sólo tenemos un parámetro
+
 let mostrarMensaje2 = () => {
     console.log('un mensaje en arrow function');
     console.log('un mensaje x2');
@@ -126,19 +136,25 @@ let saludarUsuario2 = (nombreDeUsuario) => {
 
 saludarUsuario2('Hiromi');
 
-let sumar2 = (num1, num2) => {
-    return num1 + num2;
-}
+// let sumar2 = (num1, num2) => {
+//     return num1 + num2;
+// }
+
+let sumar2 = (num1, num2) => num1 + num2;
+
 
 console.log(sumar2(100, 200));
 
-let convertirAFarenheit2 = (centigrados) => {
-    return (centigrados * 9 / 5) + 32;
-}
+// let convertirAFarenheit2 = (centigrados) => {
+//     return (centigrados * 9 / 5) + 32;
+// }
+
+let convertirAFarenheit2 = centigrados => (centigrados * 9 / 5) + 32;
+
 
 console.log(convertirAFarenheit2(0));
 
-let determinarQuienGanaMas2 = (informacionEmpleados) => {
+let determinarQuienGanaMas2 = informacionEmpleados => {
     let sueldoMayor = 0;
     let ganador = '';
     for(let i = 0; i < informacionEmpleados.length; i++) {
@@ -153,3 +169,17 @@ let determinarQuienGanaMas2 = (informacionEmpleados) => {
 }
 
 console.log(determinarQuienGanaMas2(informacion));
+
+//tres formas para delcarar la misma función
+
+function elevarAlCuadrado (numero) {
+    return console.log(numero * numero);
+}
+
+let elevarAlCuadrado2 = (numero) => {
+    return console.log(numero * numero);
+};
+
+let elevarAlCuadrado3 = numero => console.log(numero * numero);
+
+elevarAlCuadrado(2);
