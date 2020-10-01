@@ -96,9 +96,16 @@ console.log('numerosDuplicados', numerosDuplicados);
 console.log('numerosNuevo', numerosNuevo);
 
 //CONSTRUIR UN ARREGLO BASADO EN UN ARREGLO BASE
-let a = ['22 - 0', '15 - 1', '10 -2', '12 -3', '8 - 4'];
+// let a = ['22 - 0', '15 - 1', '10 -2', '12 -3', '8 - 4'];
 
 let array = [22, 15, 10, 12, 8];
+
+let array2 = array.map((elementoActual, i) => {
+    return `${elementoActual} - ${i}`;
+})
+
+console.log(array);
+console.log(array2);
 
 
 // let numerosDuplicados = numeros.map((numero, i, arr) => {
