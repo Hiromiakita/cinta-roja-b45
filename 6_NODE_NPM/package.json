@@ -1,0 +1,22 @@
+{
+  "name": "6_node_npm",
+  "version": "1.0.0",
+  "description": "Este es un proyecto de test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "js"
+  ],
+  "author": "Hiromi",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bootstrap": "^4.5.2",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {}
+}
