@@ -18,7 +18,7 @@ let obtenerPokemon = (id) => {
     })
 }
 
-obtenerPokemon(8);
+// obtenerPokemon(8);
 
 
 // 2.- Hacer una funcion que haga una petición 
@@ -38,7 +38,6 @@ let traerAutor = (nombreLibro) => {
             console.log('No se encontraron resultados');
         }
     })
-
 }
 
 
@@ -65,10 +64,25 @@ let traerLibros = (autor) => {
     })
 }
 
-traerLibros('asimov');
+// traerLibros('asimov');
 
 // 4.- Hacer una petición y devolver el género de la banda deseada
 //     http://www.theaudiodb.com/api/v1/json/1/search.php?s=muse
+
+let traerGenero = (banda) => {
+    const URL_BASE = 'http://www.theaudiodb.com/api/v1/json/1/search.php?s=';
+
+    request(`${URL_BASE}${banda}`, (err, res, body) => {
+        if(res.statusCode === 200) {
+            let resultados = JSON.parse(body);
+            console.log(resultados.artists);
+        } else {
+            console.log('error en la búsqueda');
+        }
+    })
+}
+
+// traerGenero('shakira');
 // 5.- Hacer una petición a la swapi a un personaje y obtener 
 //     sus películas.
 //                     https://swapi.co/
@@ -79,3 +93,8 @@ traerLibros('asimov');
 //     devolver un arreglo de objetos con el nombre, sus moves, tipos, tamaño 
 //     y peso.
 //                       https://pokeapi.co/
+
+
+let arreglo = ['hola'];
+
+console.log(arreglo[0]);
