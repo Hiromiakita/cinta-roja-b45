@@ -86,6 +86,79 @@ let traerGenero = (banda) => {
 // 5.- Hacer una petición a la swapi a un personaje y obtener 
 //     sus películas.
 //                     https://swapi.co/
+
+let traerPrimerPelicula = (idPersonaje) => {
+    const URL_BASE = 'https://swapi.dev/api/people/';
+
+    request(`${URL_BASE}${idPersonaje}`, (error, respuesta, body) => {
+        if(respuesta.statusCode === 200) {
+            let personajeInfo = JSON.parse(body);
+            console.log(personajeInfo.name);
+
+            request(personajeInfo.films[0], (error2, respuesta2, body2) => {
+                let infoPelicula1 = JSON.parse(body2);
+                console.log(infoPelicula1.title);
+        })
+        } else { 
+            console.log('ERROR, status code: ', respuesta.statusCode)
+        }
+    })
+}
+
+// traerPrimerPelicula(1);
+
+
+let traerPeliculas = (idPersonaje) => {
+
+    const URL_BASE = 'https://swapi.dev/api/people/';
+
+    request(`${URL_BASE}${idPersonaje}`, (err, res, body) => {
+        let personaje = JSON.parse(body);
+        console.log(personaje.name);
+
+        personaje.films.forEach(film => {
+            request(film, (error, respuesta, bodyFilm) => {
+                let infoPelicula = JSON.parse(bodyFilm);
+                console.log('Película: ',infoPelicula.title);
+            })
+        })
+    })
+}
+
+// traerPeliculas(20);
+
+
+const traerPersonajesPelicula = (idPelicula) => {
+    const URL_BASE = 'http://swapi.dev/api/films/';
+
+    request(`${URL_BASE}${idPelicula}`, (error, respuesta, body) => {
+
+        if ( respuesta.statusCode === 200 ) {
+
+            let infoPelicula = JSON.parse(body);
+            console.log('Película', infoPelicula.title);
+            // array.forEach(elemento => {
+            //     manipulamos el elemento
+            // })
+
+            infoPelicula.characters.forEach(URL_PERSONAJE => {
+                request(URL_PERSONAJE, (error2, respuesta2, body2) => {
+                    let infoPersonaje = JSON.parse(body2);
+                    console.log('Personaje:', infoPersonaje.name);
+                })
+            })
+
+        } else {
+            console.log('ERROR, status code:', respuesta.statusCode);
+        }
+
+    })
+}
+
+traerPersonajesPelicula(1);
+
+
+// traerPeliculas(1);
 // 6.- Devolver los asteroides que sean potencialmente peligrosos
 //     para la tierra de la semana pasada hasta el día de ayer.
 //                     https://api.nasa.gov/
@@ -95,6 +168,7 @@ let traerGenero = (banda) => {
 //                       https://pokeapi.co/
 
 
-let arreglo = ['hola'];
 
-console.log(arreglo[0]);
+// let arreglo = ['hola'];
+
+// console.log(arreglo[0]);
