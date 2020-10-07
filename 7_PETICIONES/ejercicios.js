@@ -210,12 +210,68 @@ let obtenerHabitantes = (idPlaneta) => {
 //                     https://pokeapi.co/api/v2/pokemon/1
 
 
-// 10.- Devolver los asteroides que sean potencialmente peligrosos
+let obtenerHabilidadesPokemon = (idPokemon) => {
+
+    const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/';
+
+    request(`${URL_BASE}${idPokemon}`, (error, respuesta, body) => {
+        if (respuesta.statusCode === 200) {
+            let infoPokemon = JSON.parse(body);
+            console.log('pokemon name:', infoPokemon.name);
+
+            infoPokemon.abilities.forEach(habilidad => {
+                console.log('habilidad:', habilidad.ability.name);
+            })
+
+        } else {
+            console.log('ERROR');
+        }
+
+    })
+}
+
+// obtenerHabilidadesPokemon(200);
+
+
+// 10.- Hacer una petición a la pokeapi a un pokemon y obtener 
+//     el área en donde lo encuentras
+//
+//                     https://pokeapi.co/api/v2/pokemon/1
+
+
+let encontrarAreaDelPokemon = (idPokemon) => {
+    const URL_BASE = 'https://pokeapi.co/api/v2/pokemon/1';
+
+    request(`${URL_BASE}${idPokemon}`, (error, respuesta, body) => {
+        if (respuesta.statusCode === 200) {
+            let infoPokemon = JSON.parse(body);
+            console.log('nombre pokemon:',infoPokemon.name);
+
+            let URL_LOCATION = infoPokemon.location_area_encounters;
+
+            request(URL_LOCATION, (error, respuesta, body) => {
+                let infoLocation = JSON.parse(body);
+                console.log('lo puedes encontrar en:',infoLocation[0].location_area.name);
+            })
+
+
+
+        } else {
+            console.log('ERROR');
+        }
+
+    })
+}
+
+encontrarAreaDelPokemon(1);
+
+
+// 11.- Devolver los asteroides que sean potencialmente peligrosos
 //     para la tierra de la semana pasada hasta el día de ayer.
 //                     https://api.nasa.gov/
 
 
-// 11.- Traer los primeros 151 pokemon de la primera generacion y 
+// 12.- Traer los primeros 151 pokemon de la primera generacion y 
 //     devolver un arreglo de objetos con el nombre, sus moves, tipos, tamaño 
 //     y peso.
 //                       https://pokeapi.co/
