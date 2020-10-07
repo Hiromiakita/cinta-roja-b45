@@ -173,6 +173,11 @@ traerPersonajesPelicula(1);
 
 
 
+// 9.- Hacer una petición a la pokeapi a un pokemon y obtener 
+//     sus habilidades
+//
+//                     https://pokeapi.co/api/v2/pokemon/1
+
 // traerPeliculas(1);
 // 6.- Devolver los asteroides que sean potencialmente peligrosos
 //     para la tierra de la semana pasada hasta el día de ayer.
