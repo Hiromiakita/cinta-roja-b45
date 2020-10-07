@@ -84,7 +84,8 @@ let traerGenero = (banda) => {
 
 // traerGenero('shakira');
 // 5.- Hacer una petición a la swapi a un personaje y obtener 
-//     sus películas.
+//     su primera película
+//
 //                     https://swapi.co/
 
 let traerPrimerPelicula = (idPersonaje) => {
@@ -107,6 +108,10 @@ let traerPrimerPelicula = (idPersonaje) => {
 
 // traerPrimerPelicula(1);
 
+// 6.- Hacer una petición a la swapi a un personaje y obtener 
+//     sus primera películas
+//
+//                     https://swapi.co/
 
 let traerPeliculas = (idPersonaje) => {
 
@@ -127,7 +132,10 @@ let traerPeliculas = (idPersonaje) => {
 
 // traerPeliculas(20);
 
-
+// 7.- Hacer una petición a la swapi a una película y obtener 
+//     sus personajes
+//
+//                     https://swapi.co/
 const traerPersonajesPelicula = (idPelicula) => {
     const URL_BASE = 'http://swapi.dev/api/films/';
 
@@ -156,6 +164,13 @@ const traerPersonajesPelicula = (idPelicula) => {
 }
 
 traerPersonajesPelicula(1);
+
+
+// 8.- Hacer una petición a la swapi a un planeta y obtener 
+//     sus habitantes
+//
+//                     https://swapi.co/
+
 
 
 // traerPeliculas(1);
