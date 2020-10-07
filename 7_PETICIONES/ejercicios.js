@@ -167,9 +167,9 @@ traerPersonajesPelicula(1);
 
 
 // 8.- Hacer una petición a la swapi a un planeta y obtener 
-//     sus habitantes
+//     los nombres de los habitantes
 //
-//                     https://swapi.co/
+//                     http://swapi.dev/api/planets/1/
 
 
 
