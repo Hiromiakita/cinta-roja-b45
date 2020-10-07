@@ -83,6 +83,8 @@ let traerGenero = (banda) => {
 }
 
 // traerGenero('shakira');
+
+
 // 5.- Hacer una petición a la swapi a un personaje y obtener 
 //     su primera película
 //
@@ -164,7 +166,7 @@ const traerPersonajesPelicula = (idPelicula) => {
     })
 }
 
-traerPersonajesPelicula(1);
+// traerPersonajesPelicula(1);
 
 
 // 8.- Hacer una petición a la swapi a un planeta y obtener 
@@ -172,6 +174,34 @@ traerPersonajesPelicula(1);
 //
 //                     http://swapi.dev/api/planets/1/
 
+
+let obtenerHabitantes = (idPlaneta) => {
+    const URL_BASE = 'http://swapi.dev/api/planets/';
+
+    request(`${URL_BASE}${idPlaneta}`, (error, respuesta, body) => {
+        if ( respuesta.statusCode === 200 ) {
+
+            let infoPlaneta = JSON.parse(body);
+            console.log('Nombre del planeta: ', infoPlaneta.name);
+
+            if(infoPlaneta.residentes) {
+                infoPlaneta.residents.forEach(URL_HABITANTE => {
+                    request(URL_HABITANTE, (error, respuesta, body) => {
+                        let infoHabitante = JSON.parse(body);
+                        console.log('Habitante', infoHabitante.name);
+                    })
+                })
+            } else {
+                console.log('No hay habitantes');
+            }
+            
+        } else {
+            console.log('ERROR, no existe el planeta consultado')
+        }
+    })
+}
+
+// obtenerHabitantes(200);
 
 
 // 9.- Hacer una petición a la pokeapi a un pokemon y obtener 
