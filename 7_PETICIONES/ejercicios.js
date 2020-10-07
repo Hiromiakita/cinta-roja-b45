@@ -131,6 +131,7 @@ let traerPeliculas = (idPersonaje) => {
 }
 
 // traerPeliculas(20);
+// traerPeliculas(1);
 
 // 7.- Hacer una petición a la swapi a una película y obtener 
 //     sus personajes
@@ -178,11 +179,13 @@ traerPersonajesPelicula(1);
 //
 //                     https://pokeapi.co/api/v2/pokemon/1
 
-// traerPeliculas(1);
-// 6.- Devolver los asteroides que sean potencialmente peligrosos
+
+// 10.- Devolver los asteroides que sean potencialmente peligrosos
 //     para la tierra de la semana pasada hasta el día de ayer.
 //                     https://api.nasa.gov/
-// 7.- Traer los primeros 151 pokemon de la primera generacion y 
+
+
+// 11.- Traer los primeros 151 pokemon de la primera generacion y 
 //     devolver un arreglo de objetos con el nombre, sus moves, tipos, tamaño 
 //     y peso.
 //                       https://pokeapi.co/
