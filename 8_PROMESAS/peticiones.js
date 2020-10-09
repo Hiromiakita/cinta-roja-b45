@@ -1,20 +1,20 @@
 const request = require('request');
 
-let obtenerPersonaje = (idPersonaje) => {
-    const URL_BASE = 'https://swapi.dev/api/people/';
+// let obtenerPersonaje = (idPersonaje) => {
+//     const URL_BASE = 'https://swapi.dev/api/people/';
 
-    return new Promise( (resolve, reject) => {
+//     return new Promise( (resolve, reject) => {
 
-        request(`${URL_BASE}${idPersonaje}`, (error, respuesta, body) => {
-            if(respuesta.statusCode === 200) {
-                let infoPersonaje = JSON.parse(body);
-                resolve(infoPersonaje);
-            } else {
-                reject('NO SE ENCONTRARÓ EL PERSONAJE');
-            }
-        } )
-    })
-};
+//         request(`${URL_BASE}${idPersonaje}`, (error, respuesta, body) => {
+//             if(respuesta.statusCode === 200) {
+//                 let infoPersonaje = JSON.parse(body);
+//                 resolve(infoPersonaje);
+//             } else {
+//                 reject('NO SE ENCONTRARÓ EL PERSONAJE');
+//             }
+//         } )
+//     })
+// };
 
 // obtenerPersonaje(1)
 //     .then(personaje => console.log(personaje.hair_color))
@@ -56,9 +56,48 @@ let obtenerPersonajes = () => {
     } )
 }
 
-obtenerPersonajes()
-    .then(body => {
-        let infoPersonajes = JSON.parse(body);
-        console.log(infoPersonajes);
-    })
-    .catch(carita => console.log(carita));
+// obtenerPersonajes()
+//     .then(body => {
+//         let infoPersonajes = JSON.parse(body);
+//         console.log(infoPersonajes);
+//     })
+//     .catch(carita => console.log(carita));
+
+
+
+
+
+
+    let obtenerPersonaje = (idPersonaje) => {
+        const URL_BASE = 'https://swapi.dev/api/people/';
+    
+        return new Promise( (resolve, reject) => {
+
+            request( `${URL_BASE}${idPersonaje}`, (error, respuesta, body) => {
+
+                respuesta.statusCode === 200 
+                ? resolve(body) 
+                : reject('No encontramos al personaje');
+
+            })
+        })
+    };
+
+
+    obtenerPersonaje(10).then(body => {
+        let infoPersonaje = JSON.parse(body);
+        console.log(infoPersonaje.name);
+        let endpoints = infoPersonaje.films;
+
+        endpoints.forEach(endpoint_film => {
+            request(endpoint_film, (error, respuesta, body) => {
+                if (respuesta.statusCode === 200) {
+                    let infoPelicula = JSON.parse(body);
+                    console.log(infoPelicula.title);
+                } else {
+                    console.log('no hay películas');
+                }
+            })
+        })
+
+    }).catch(err => console.log(err));
