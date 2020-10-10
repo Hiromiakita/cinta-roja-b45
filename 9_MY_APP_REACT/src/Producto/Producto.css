@@ -1,0 +1,12 @@
+.producto {
+    background-color: greenyellow;
+    padding: 3rem;
+    margin: 3rem;
+    text-align: center;
+    width: 10rem;
+}
+
+.img-producto {
+    width: 6rem;
+}
+
