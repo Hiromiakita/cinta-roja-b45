@@ -184,7 +184,7 @@ let obtenerHabitantes = (idPlaneta) => {
             let infoPlaneta = JSON.parse(body);
             console.log('Nombre del planeta: ', infoPlaneta.name);
 
-            if(infoPlaneta.residentes) {
+            if(infoPlaneta.residents) {
                 infoPlaneta.residents.forEach(URL_HABITANTE => {
                     request(URL_HABITANTE, (error, respuesta, body) => {
                         let infoHabitante = JSON.parse(body);
