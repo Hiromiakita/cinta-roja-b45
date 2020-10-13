@@ -270,6 +270,19 @@ encontrarAreaDelPokemon(1);
 //     para la tierra de la semana pasada hasta el día de ayer.
 //                     https://api.nasa.gov/
 
+let obtenerAsteroides = () => {
+    const URL_BASE = 'https://api.nasa.gov/neo/rest/v1/feed?start_date=2018-11-18&end_date=2018-11-21&api_key=cDwpLgEBWZfbvThy0SAYpKqWX5W5DKmMrNEbdo2O';
+
+    request(URL_BASE, (error, respuesta, body) => {
+        if (respuesta.statusCode === 200) {
+            let info = JSON.parse(body);
+            console.log('nombre:',info.near_earth_objects['2018-11-18'][0]);
+        } else {
+            console.log('ERROR');
+        }
+    })
+}
+obtenerAsteroides();
 
 // 12.- Traer los primeros 151 pokemon de la primera generacion y 
 //     devolver un arreglo de objetos con el nombre, sus moves, tipos, tamaño 
