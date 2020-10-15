@@ -1,0 +1,9 @@
+.background {
+    background-image: url('../assets/background.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    height: -webkit-fill-available;
+}
+  
